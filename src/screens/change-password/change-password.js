@@ -7,6 +7,8 @@
  */
 
 import React, {useState, useEffect} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faCheckCircle} from '@fortawesome/free-solid-svg-icons'
 import {
   SafeAreaView,
   StyleSheet,
@@ -100,6 +102,7 @@ const ChangePassword = () => {
           }}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
+              <FontAwesomeIcon icon={faCheckCircle} size={72} />
               <Text style={styles.modalText}>
                 Password Changed Successfully!
               </Text>
