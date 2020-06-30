@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import RegisterScreen from '../screens/register/register';
 import ChangePasswordScreen from '../screens/change-password/change-password';
+import WorksScreen from '../screens/works/works';
 
 const Stack = createStackNavigator();
 
@@ -16,10 +17,8 @@ const Navigator = () => {
             headerShown: false,
           }}>
           {/* <Stack.Screen name="register" component={RegisterScreen} /> */}
-          <Stack.Screen 
-            name="change-password"
-            component={ChangePasswordScreen}
-          />
+          {/* <Stack.Screen name="change-password" component={ChangePasswordScreen} /> */}
+          <Stack.Screen name="works" component={WorksScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
