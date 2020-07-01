@@ -66,7 +66,7 @@ let handleKeyboardDidHide = () => {
   }).start();
 };
 
-const Works = () => {
+const FulltimeWorks = () => {
   useEffect(() => {
     const keyboardDidShowSub = Keyboard.addListener(
       'keyboardDidShow',
@@ -99,7 +99,7 @@ const Works = () => {
               icon={faBars}
               size={25}
             />
-            <Text style={styles.header}>Works</Text>
+            <Text style={styles.header}>Fulltime Works</Text>
             <View style={styles.searchSection}>
               <TextInput
                 style={styles.searchInput}
@@ -222,7 +222,9 @@ const Works = () => {
             </ScrollView>
             <View style={styles.footer}>
               <TouchableOpacity style={styles.footerButton}>
-                <Text style={styles.footerText}>Fulltime</Text>
+                <Text style={[styles.footerText, styles.activeFooterButton]}>
+                  Fulltime
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.footerButton}>
                 <Text style={styles.footerText}>Internship</Text>
@@ -310,6 +312,15 @@ const styles = StyleSheet.create({
   textBold: {
     fontWeight: 'bold',
   },
+  activeFooterButton: {
+    backgroundColor: Colors.black,
+    color: Colors.white,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderRadius: 5,
+  },
 });
 
-export default Works;
+export default FulltimeWorks;
