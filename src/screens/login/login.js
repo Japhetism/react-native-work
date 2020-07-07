@@ -24,6 +24,7 @@ import {
   UIManager,
   TouchableHighlight,
 } from 'react-native';
+import SplashScreen from '../../components/splash-screen';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -68,6 +69,9 @@ let handleKeyboardDidHide = () => {
 
 const Login = () => {
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
     const keyboardDidShowSub = Keyboard.addListener(
       'keyboardDidShow',
       handleKeyboardDidShow,
@@ -83,6 +87,7 @@ const Login = () => {
     }
   }, []);
   const [changePasswordFormData, setChangePasswordFormData] = useState('');
+  const [isLoading, setIsLoading] = useState('true');
   const onChange = (name, value) => {
     //console.log(text)
     setChangePasswordFormData({...changePasswordFormData, [name]: value});
@@ -90,35 +95,38 @@ const Login = () => {
   console.log(changePasswordFormData);
   return (
     <>
-      <Animated.View style={[styles.form, {transform: [{translateY: shift}]}]}>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <View>
-            <Text style={styles.header}>Login</Text>
-            <View style={styles.loginForm}>
-              <TextInput
-                style={styles.textInput}
-                placeholder="Email"
-                name="email"
-                secureTextEntry={true}
-                onChangeText={text => onChange('email', text)}
-                defaultValue={changePasswordFormData.email}
-              />
-              <TextInput
-                style={styles.textInput}
-                placeholder="Password"
-                name="password"
-                secureTextEntry={true}
-                onChangeText={text => onChange('password', text)}
-                defaultValue={changePasswordFormData.password}
-              />
-              <TouchableOpacity>
-                <Text style={styles.button}>Login</Text>
-              </TouchableOpacity>
+      {isLoading && <SplashScreen />}
+      {!isLoading && 
+        <Animated.View
+          style={[styles.form, {transform: [{translateY: shift}]}]}>
+          <StatusBar barStyle="dark-content" />
+          <SafeAreaView>
+            <View>
+              <Text style={styles.header}>Login</Text>
+              <View style={styles.loginForm}>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="Email"
+                  name="email"
+                  secureTextEntry={true}
+                  onChangeText={text => onChange('email', text)}
+                  defaultValue={changePasswordFormData.email}
+                />
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="Password"
+                  name="password"
+                  secureTextEntry={true}
+                  onChangeText={text => onChange('password', text)}
+                  defaultValue={changePasswordFormData.password}
+                />
+                <TouchableOpacity>
+                  <Text style={styles.button}>Login</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </SafeAreaView>
-      </Animated.View>
+          </SafeAreaView>
+        </Animated.View>}
     </>
   );
 };
