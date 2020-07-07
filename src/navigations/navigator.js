@@ -6,6 +6,7 @@ import RegisterScreen from '../screens/register/register';
 import ChangePasswordScreen from '../screens/change-password/change-password';
 import WorksScreen from '../screens/works/works';
 import FulltimeWorksScreen from '../screens/works/fulltime-works';
+import  Login from '../screens/login/login';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +21,8 @@ const Navigator = () => {
           {/* <Stack.Screen name="register" component={RegisterScreen} /> */}
           {/* <Stack.Screen name="change-password" component={ChangePasswordScreen} /> */}
           {/* <Stack.Screen name="works" component={WorksScreen} /> */}
-          <Stack.Screen name="fulltime-works" component={FulltimeWorksScreen} />
+          {/* <Stack.Screen name="fulltime-works" component={FulltimeWorksScreen} /> */}
+          <Stack.Screen name="login" component={Login} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
